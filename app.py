@@ -378,14 +378,13 @@ def floating_hearts(n=18):
     st.markdown(html, unsafe_allow_html=True)
 
 # ─── Session state ─────────────────────────────────────────────────────────────
-for k, v in [("page","password"),("no_pos",0),("reasons_shown",10),
+# Changed the default page from "password" to "question" to skip the keypad entry
+for k, v in [("page","question"),("no_pos",0),("reasons_shown",10),
               ("photo_idx",0),("pw_error",False),("entered_pw","")]:
     if k not in st.session_state:
         st.session_state[k] = v
 
 # ─── Data ──────────────────────────────────────────────────────────────────────
-PASSWORD = "11012026"
-
 REASONS = [
     "The way you make me laugh through a screen.",
     "Your voice is my favorite comfort sound.",
@@ -431,48 +430,9 @@ PICS = [
 ]
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PASSWORD
-# ══════════════════════════════════════════════════════════════════════════════
-if st.session_state.page == "password":
-    floating_hearts(8)
-    st.markdown("""
-    <div class="pw-wrap">
-        <div class="pw-lock">🔒</div>
-        <div class="pw-title">This is for someone<br>very special 🌸</div>
-        <div class="pw-hint">Hint: the day we met — DDMMYYYY</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown(f"<h2 style='text-align:center;color:#ffb3d1;letter-spacing:8px'>{'*'*len(st.session_state.entered_pw)}</h2>", unsafe_allow_html=True)
-
-    keypad=[['1','2','3'],['4','5','6'],['7','8','9'],['⌫','0','✓']]
-    for row in keypad:
-        cols=st.columns(3)
-        for i,key in enumerate(row):
-            with cols[i]:
-                if st.button(key, key=f"kp_{key}", use_container_width=True):
-                    if key=='⌫':
-                        st.session_state.entered_pw=st.session_state.entered_pw[:-1]
-                    elif key=='✓':
-                        if st.session_state.entered_pw==PASSWORD:
-                            st.session_state.page='question'
-                            st.session_state.pw_error=False
-                            st.rerun()
-                        else:
-                            st.session_state.pw_error=True
-                    else:
-                        if len(st.session_state.entered_pw)<8:
-                            st.session_state.entered_pw+=key
-                    st.rerun()
-
-    if st.session_state.pw_error:
-        st.markdown('<p class="pw-error">Hmm, that\'s not right… think about when everything started 💕</p>',
-                    unsafe_allow_html=True)
-
-# ══════════════════════════════════════════════════════════════════════════════
 # QUESTION
 # ══════════════════════════════════════════════════════════════════════════════
-elif st.session_state.page == "question":
+if st.session_state.page == "question":
     floating_hearts(12)
     st.markdown('<div style="text-align:center;font-size:3rem;margin-top:1.2rem;">💕</div>',
                 unsafe_allow_html=True)
@@ -521,11 +481,11 @@ elif st.session_state.page == "birthday":
     _, rp = st.columns([1.3, 1])
     with rp:
         st.markdown('<div class="r-pill">', unsafe_allow_html=True)
-        if st.button("💌 Reasons I Love You", key="go_reasons"):
+        if st.button("💌 Reasons I Love You💌", key="go_reasons"):
             st.session_state.page = "reasons"
             st.session_state.reasons_shown = 10
             st.rerun()
-        if st.button("A SMALL LETTER FOR YOU", key="go_secret"):
+        if st.button("💌A SMALL LETTER FOR YOU💌", key="go_secret"):
             st.session_state.page = "secret"
             st.session_state.reasons_shown = 10
             st.rerun()
@@ -577,7 +537,8 @@ elif st.session_state.page == "birthday":
                 <p class="photo-caption">{caption}</p>
             </div>
             ''', unsafe_allow_html=True)
-# footer
+
+    # footer
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("""
     <div class="footer">
@@ -637,6 +598,9 @@ elif st.session_state.page == "reasons":
             st.rerun()
         st.markdown('</div>', unsafe_allow_html=True)
 
+# ══════════════════════════════════════════════════════════════════════════════
+# SECRET LETTER
+# ══════════════════════════════════════════════════════════════════════════════
 elif st.session_state.page == "secret":
     floating_hearts(18)
     if st.button("← Back", key="secret_back"):
@@ -648,9 +612,10 @@ elif st.session_state.page == "secret":
     My love,<br><br>
     Every day I miss you, think about you, and imagine the moment I finally get to pull you close and never let go. You make my heart race in ways I never expected, and the distance only makes me want you more.<br><br>
     I just cannot wait for the moment i will get to kiss you all over and touch you in ways you start to make those hot noises but until then, keep this as a reminder that you're loved, desired, and constantly on my mind. ❤️<br><br>
-    I WANNA MAKE LOVE TO YOU, MAKE YOU HARD SUCK YOU DICK, GET FUCKED BY YOU. MAKE BABIES WITH YOU, MARRY YOU, HOLD YOUR HAND TILL I DIE.
+    I WANNA MAKE LOVE TO YOU, MAKE YOU HARD, SUCK YOUR DICK, GET FUCKED BY YOU. MAKE BABIES WITH YOU, MARRY YOU, HOLD YOUR HAND TILL I DIE.
     </div>
     """, unsafe_allow_html=True)
+
 st.markdown('''
 <style>
 html, body, [class*="css"]{
