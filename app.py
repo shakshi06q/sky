@@ -429,29 +429,44 @@ PICS = [
     ("images/photo3.jpeg", "You Look so effortlessly beautiful in everything you do. God i could stare at you my whole life. 🌿🥺"),
     ("images/photo4.jpeg", "That LAUGH. Full-face, eyes-squeezed-shut, completely unguarded — that is the laugh I want to spend the rest of my life causing. You have no idea how much I love you. 🥹💗"),
 ]
-
 # ══════════════════════════════════════════════════════════════════════════════
-# QUESTION
+# QUESTION PAGE
 # ══════════════════════════════════════════════════════════════════════════════
-st.session_state.page == "question"
-floating_hearts(12)
-st.markdown('<div style="text-align:center;font-size:3rem;margin-top:1.2rem;">💕</div>',
-                unsafe_allow_html=True)
-st.markdown("<p class='q-title'>ARE YOU<br>SHAKSHI'S BOYFRIEND?</p>", unsafe_allow_html=True)
-st.markdown("<p class='q-sub'>Think very carefully before you answer… 🌸</p>",
-                unsafe_allow_html=True)
+if st.session_state.page == "password":
+    st.session_state.page = "question"
+    st.rerun()
 
-c1, c2 = st.columns(2, gap="medium")
-with c1:
+if st.session_state.page == "question":
+    floating_hearts(12)
+
+    st.markdown(
+        '<div style="text-align:center;font-size:3rem;margin-top:1.2rem;">💕</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        "<p class='q-title'>ARE YOU<br>SHAKSHI'S BOYFRIEND?</p>",
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        "<p class='q-sub'>Think very carefully before you answer… 🌸</p>",
+        unsafe_allow_html=True
+    )
+
+    c1, c2 = st.columns(2, gap="medium")
+
+    with c1:
         if st.button("YES 💖", key="yes_btn", use_container_width=True):
             st.session_state.page = "birthday"
             st.rerun()
-with c2:
+
+    with c2:
         if st.button("NO 💔", key="no_btn", use_container_width=True):
             st.session_state.no_pos += 1
             st.rerun()
 
-if st.session_state.no_pos > 0:
+    if st.session_state.no_pos > 0:
         msgs = [
             "Are you sure about that? 🌸",
             "That button keeps running away… 💕",
@@ -462,94 +477,75 @@ if st.session_state.no_pos > 0:
             "Dont you Love Me????",
             "Ughhhh Fuck Youuu",
         ]
-        aligns = ["flex-end","flex-start","center","flex-end","flex-start"]
-        m = min(st.session_state.no_pos - 1, len(msgs)-1)
+
+        aligns = ["flex-end", "flex-start", "center", "flex-end", "flex-start"]
+
+        m = min(st.session_state.no_pos - 1, len(msgs) - 1)
         a = aligns[st.session_state.no_pos % len(aligns)]
+
         st.markdown(
-            f'<div style="display:flex;justify-content:{a};margin-top:0.4rem;">'
-            f'<span style="font-size:1.5rem;opacity:0.4;">💔</span></div>'
-            f'<div style="text-align:center;margin-top:0.6rem;font-style:italic;'
-            f'color:rgba(255,180,210,0.6);font-size:0.9rem;">{msgs[m]}</div>',
-            unsafe_allow_html=True)
-
-# ══════════════════════════════════════════════════════════════════════════════
-# BIRTHDAY
-# ══════════════════════════════════════════════════════════════════════════════
-elif st.session_state.page == "birthday":
-    floating_hearts(22)
-
-    # reasons pill — top right
-    _, rp = st.columns([1.3, 1])
-    with rp:
-        st.markdown('<div class="r-pill">', unsafe_allow_html=True)
-        if st.button("💌 Reasons I Love You", key="go_reasons"):
-            st.session_state.page = "reasons"
-            st.session_state.reasons_shown = 10
-            st.rerun()
-        if st.button("love Letter", key="go_secret"):
-            st.session_state.page = "secret"
-            st.session_state.reasons_shown = 10
-            st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # header
-    st.markdown("""
-    <div style="text-align:center;font-size:clamp(1.6rem,6vw,2.2rem);
-                letter-spacing:6px;margin:0.1rem 0;">💖 🌸 💖 🌸 💖</div>
-    """, unsafe_allow_html=True)
-    st.markdown("<h1 class='bday-title'>Happy Birthday,<br>My Love 🎂</h1>",
-                unsafe_allow_html=True)
-    st.markdown("<p class='bday-sub'>Today the world got a little more beautiful<br>because it's your day. 🌹</p>",
-                unsafe_allow_html=True)
-
-    # days badge
-    st.markdown(f"""
-    <div class="days-badge">
-        <div class="days-num">{DAYS_TOGETHER}</div>
-        <div class="days-label">DAYS TOGETHER 💕</div>
-        <div class="days-sub">since 11th January 2026 — and counting forever 🌸</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-
-    # love notes
-    for icon, note in [
-        ("🌸", "Every single day I get to know you is the best day of my life. Today just happens to be extra special because you came into this world — and I will forever be grateful for that."),
-        ("💕", "The distance between us is just a number. My heart has never once doubted that you are exactly where you're supposed to be — right here, in every thought, every smile, every quiet moment I save for you."),
-        ("💖", "I don't have the words to explain what you mean to me. But I hope you feel it — in every 'good morning', every 'are you okay?', every late night we stay up just to be near each other."),
-        ("🎂", "You deserve a birthday as soft, as warm, and as completely overwhelmingly wonderful as you make me feel every single day. This is just the beginning. ✨"),
-    ]:
-        st.markdown(f'<div class="love-note"><span style="font-size:1.05rem;">{icon}</span><br>{note}</div>',
-                    unsafe_allow_html=True)
-
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-
-    # ── PHOTO GALLERY ──────────────────────────────────────────────────────────
-    st.markdown("<h2 class='gallery-title'>📸 My Favourite Pics of You</h2>", unsafe_allow_html=True)
-    st.markdown("<p class='gallery-sub'>moments I've saved in my heart 🌸</p>", unsafe_allow_html=True)
-
-    for img_path, caption in PICS:
-        if Path(img_path).exists():
-            b64 = img_to_b64(img_path)
-            st.markdown(f'''
-            <div class="photo-wrap" style="margin-bottom:40px;">
-                <img class="photo-img" src="data:image/jpeg;base64,{b64}">
-                <p class="photo-caption">{caption}</p>
+            f'''
+            <div style="display:flex;justify-content:{a};margin-top:0.4rem;">
+                <span style="font-size:1.5rem;opacity:0.4;">💔</span>
             </div>
-            ''', unsafe_allow_html=True)
-# footer
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="footer">
-        <div class="footer-main">Happy Birthday, my love. 💖</div>
-        <div class="footer-sub">
-            You are my favourite part of every single day.<br>
-            I love you more than words will ever, ever manage to say. 🌹
+            <div style="text-align:center;margin-top:0.6rem;
+                        font-style:italic;
+                        color:rgba(255,180,210,0.6);
+                        font-size:0.9rem;">
+                {msgs[m]}
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+elif st.session_state.page == "birthday":
+
+    floating_hearts(18)
+
+    st.markdown(
+        "<h1 class='bday-title'>Happy Birthday My Love 💕</h1>",
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        f"""
+        <div class='days-badge'>
+            <div class='days-num'>{DAYS_TOGETHER}</div>
+            <div class='days-label'>DAYS TOGETHER</div>
         </div>
-        <div class="footer-hearts">💕🌸💖🌸💕</div>
-    </div>
-    """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )
+
+    if st.button("Reasons Why I Love You 💌"):
+        st.session_state.page = "reasons"
+        st.rerun()
+
+    path, caption = PICS[st.session_state.photo_idx]
+
+    if Path(path).exists():
+        st.image(path, width=180)
+
+    st.markdown(
+        f"<div class='photo-caption'>{caption}</div>",
+        unsafe_allow_html=True
+    )
+
+    c1, c2, c3 = st.columns([1,2,1])
+
+    with c1:
+        if st.button("⬅️"):
+            st.session_state.photo_idx = (
+                st.session_state.photo_idx - 1
+            ) % len(PICS)
+            st.rerun()
+
+    with c3:
+        if st.button("➡️"):
+            st.session_state.photo_idx = (
+                st.session_state.photo_idx + 1
+            ) % len(PICS)
+            st.rerun()
 
 # ══════════════════════════════════════════════════════════════════════════════
 # REASONS
