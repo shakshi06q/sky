@@ -538,7 +538,8 @@ elif st.session_state.page == "birthday":
         if st.button("💌 Reasons I Love You", key="go_reasons"):
             st.session_state.page = "reasons"
             st.session_state.reasons_shown = 10
-            st.rerun()        st.markdown('</div>', unsafe_allow_html=True)
+            st.rerun()        
+            st.markdown('</div>', unsafe_allow_html=True)
 
     # header
     st.markdown("""
