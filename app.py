@@ -431,144 +431,27 @@ PICS = [
 ]
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PASSWORD
-# ══════════════════════════════════════════════════════════════════════════════
-if st.session_state.page == "password":
-
-    floating_hearts(8)
-
-    # Small keypad CSS
-    st.markdown("""
-    <style>
-
-    /* Password dots */
-    .pw-display{
-        text-align:center;
-        font-size:2rem;
-        letter-spacing:8px;
-        color:#ffb3d1;
-        margin-bottom:15px;
-    }
-
-    /* Make keypad buttons much smaller */
-    div[data-testid="stHorizontalBlock"] .stButton > button {
-        height: 55px !important;
-        min-height: 55px !important;
-        font-size: 1.1rem !important;
-        border-radius: 20px !important;
-        margin: 2px !important;
-        padding: 0 !important;
-    }
-
-    /* Mobile */
-    @media (max-width: 768px){
-        div[data-testid="stHorizontalBlock"] .stButton > button {
-            height: 48px !important;
-            min-height: 48px !important;
-            font-size: 1rem !important;
-        }
-    }
-
-    </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="pw-wrap">
-        <div class="pw-lock">🔒</div>
-
-        <div class="pw-title">
-            This is for someone<br>
-            very special 🌸
-        </div>
-
-        <div class="pw-hint">
-            Hint: the day we met — DDMMYYYY
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Password display
-    st.markdown(
-        f"<div class='pw-display'>{'●' * len(st.session_state.entered_pw)}</div>",
-        unsafe_allow_html=True
-    )
-
-    keypad = [
-        ["1", "2", "3"],
-        ["4", "5", "6"],
-        ["7", "8", "9"],
-        ["⌫", "0", "✓"]
-    ]
-
-    for row in keypad:
-
-        cols = st.columns([1,1,1], gap="small")
-
-        for i, key in enumerate(row):
-
-            with cols[i]:
-
-                if st.button(
-                    key,
-                    key=f"kp_{key}",
-                    use_container_width=True
-                ):
-
-                    if key == "⌫":
-                        st.session_state.entered_pw = (
-                            st.session_state.entered_pw[:-1]
-                        )
-
-                    elif key == "✓":
-
-                        if st.session_state.entered_pw == PASSWORD:
-                            st.session_state.page = "question"
-                            st.session_state.pw_error = False
-                            st.rerun()
-
-                        else:
-                            st.session_state.pw_error = True
-
-                    else:
-
-                        if len(st.session_state.entered_pw) < 8:
-                            st.session_state.entered_pw += key
-
-                    st.rerun()
-
-    if st.session_state.pw_error:
-        st.markdown(
-            """
-            <p class="pw-error">
-            Hmm, that's not right…
-            think about when everything started 💕
-            </p>
-            """,
-            unsafe_allow_html=True
-        )
-
-# ══════════════════════════════════════════════════════════════════════════════
 # QUESTION
 # ══════════════════════════════════════════════════════════════════════════════
-elif st.session_state.page == "question":
-    floating_hearts(12)
-    st.markdown('<div style="text-align:center;font-size:3rem;margin-top:1.2rem;">💕</div>',
+st.session_state.page == "question"
+floating_hearts(12)
+st.markdown('<div style="text-align:center;font-size:3rem;margin-top:1.2rem;">💕</div>',
                 unsafe_allow_html=True)
-    st.markdown("<p class='q-title'>ARE YOU<br>SHAKSHI'S BOYFRIEND?</p>", unsafe_allow_html=True)
-    st.markdown("<p class='q-sub'>Think very carefully before you answer… 🌸</p>",
+st.markdown("<p class='q-title'>ARE YOU<br>SHAKSHI'S BOYFRIEND?</p>", unsafe_allow_html=True)
+st.markdown("<p class='q-sub'>Think very carefully before you answer… 🌸</p>",
                 unsafe_allow_html=True)
 
-    c1, c2 = st.columns(2, gap="medium")
-    with c1:
+c1, c2 = st.columns(2, gap="medium")
+with c1:
         if st.button("YES 💖", key="yes_btn", use_container_width=True):
             st.session_state.page = "birthday"
             st.rerun()
-    with c2:
+with c2:
         if st.button("NO 💔", key="no_btn", use_container_width=True):
             st.session_state.no_pos += 1
             st.rerun()
 
-    if st.session_state.no_pos > 0:
+if st.session_state.no_pos > 0:
         msgs = [
             "Are you sure about that? 🌸",
             "That button keeps running away… 💕",
