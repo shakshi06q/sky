@@ -26,7 +26,7 @@ st.markdown("""
 /* ══ GLOBAL ══════════════════════════════════════════════════════════════════ */
 html, body, [class*="css"], .stApp {
     font-family: 'Lato', sans-serif;
-    background: #1a0a12 !important;
+    background: #2b1320 !important;
     color: #ffd6e8;
 }
 .stApp {
@@ -34,7 +34,7 @@ html, body, [class*="css"], .stApp {
         radial-gradient(ellipse at 20% 10%, rgba(180,20,80,0.18) 0%, transparent 55%),
         radial-gradient(ellipse at 80% 80%, rgba(140,10,60,0.15) 0%, transparent 55%),
         radial-gradient(ellipse at 50% 50%, rgba(100,5,40,0.1) 0%, transparent 70%),
-        #1a0a12 !important;
+        #2b1320 !important;
     min-height: 100vh;
 }
 #MainMenu, footer, header { visibility: hidden; }
@@ -379,7 +379,7 @@ def floating_hearts(n=18):
 
 # ─── Session state ─────────────────────────────────────────────────────────────
 for k, v in [("page","password"),("no_pos",0),("reasons_shown",10),
-              ("photo_idx",0),("pw_error",False)]:
+              ("photo_idx",0),("pw_error",False),("entered_pw","")]:
     if k not in st.session_state:
         st.session_state[k] = v
 
@@ -490,9 +490,10 @@ elif st.session_state.page == "question":
             "The universe is literally telling you something 😭",
             "Just click YES, babe, come on 💖",
             "I'm not letting you go that easily 🌹",
-            "Come On Daddy",
-            "Don't You Loveeee Me??????"
-              ]
+            "Come on Daddyy",
+            "Dont you Love Me????",
+            "Fuckkk Youuu",
+        ]
         aligns = ["flex-end","flex-start","center","flex-end","flex-start"]
         m = min(st.session_state.no_pos - 1, len(msgs)-1)
         a = aligns[st.session_state.no_pos % len(aligns)]
@@ -524,7 +525,7 @@ elif st.session_state.page == "birthday":
     <div style="text-align:center;font-size:clamp(1.6rem,6vw,2.2rem);
                 letter-spacing:6px;margin:0.1rem 0;">💖 🌸 💖 🌸 💖</div>
     """, unsafe_allow_html=True)
-    st.markdown("<h1 class='bday-title'>Happy Birthday,<br>My Love 🎂</h1>",
+    st.markdown("<h1 class='bday-title'>Happy Birthday,<br>Meri Jaan🎂</h1>",
                 unsafe_allow_html=True)
     st.markdown("<p class='bday-sub'>Today the world got a little more beautiful<br>because it's your day. 🌹</p>",
                 unsafe_allow_html=True)
@@ -654,3 +655,31 @@ elif st.session_state.page == "reasons":
             st.session_state.page = "birthday"
             st.rerun()
         st.markdown('</div>', unsafe_allow_html=True)
+
+
+# SECRET PAGE
+elif st.session_state.page == "secret":
+    floating_hearts(20)
+    if st.button("← Back"):
+        st.session_state.page = "birthday"
+        st.rerun()
+
+    st.markdown("""
+    <h1 style='text-align:center;color:#ffb3d1'>🔥 Secret Letter 🔥</h1>
+    <div class="love-note">
+    My love,<br><br>
+    Every day I spend with you makes me want you more.
+    Sometimes I think about the first thing I'll do when
+    the distance finally disappears and I can hold you
+    without a screen between us.
+
+    I'll pull you close, steal the longest kiss you've
+    ever had, and make up for every moment we've spent apart.
+    Make love to you, Kiss you all over your body till i hear those noise.
+
+    Until then, just know that you live in my thoughts
+    far more often than I should probably admit. ❤️
+    <br><br>
+    Forever yours ❤️
+    </div>
+    """, unsafe_allow_html=True)
