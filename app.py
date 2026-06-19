@@ -458,8 +458,8 @@ if st.session_state.page == "question":
             "Just click YES, babe, come on 💖",
             "I'm not letting you go that easily 🌹",
             "Come On Daddyyyy",
-            "Dont you Love Me????"
-            "Ughhhh Fuck Youuu"
+            "Dont you Love Me????",
+            "Ughhhh Fuck Youuu",
         ]
         aligns = ["flex-end","flex-start","center","flex-end","flex-start"]
         m = min(st.session_state.no_pos - 1, len(msgs)-1)
@@ -612,7 +612,9 @@ elif st.session_state.page == "secret":
     My love,<br><br>
     Every day I miss you, think about you, and imagine the moment I finally get to pull you close and never let go. You make my heart race in ways I never expected, and the distance only makes me want you more.<br><br>
     I just cannot wait for the moment i will get to kiss you all over and touch you in ways you start to make those hot noises but until then, keep this as a reminder that you're loved, desired, and constantly on my mind. ❤️<br><br>
-    I WANNA MAKE LOVE TO YOU, MAKE YOU HARD, SUCK YOUR DICK, GET FUCKED BY YOU. MAKE BABIES WITH YOU, MARRY YOU, HOLD YOUR HAND TILL I DIE.
+    I WANNA MAKE LOVE TO YOU, MAKE YOU HARD, SUCK YOUR DICK, GET FUCKED BY YOU. MAKE BABIES WITH YOU, MARRY YOU, HOLD YOUR HAND TILL I DIE.<br><br>
+    I REALLY LOVE YOU A LOT.<br><br>
+    Shakshi.
     </div>
     """, unsafe_allow_html=True)
 
