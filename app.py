@@ -26,15 +26,15 @@ st.markdown("""
 /* ══ GLOBAL ══════════════════════════════════════════════════════════════════ */
 html, body, [class*="css"], .stApp {
     font-family: 'Lato', sans-serif;
-    background: #ffedf5 !important;
-    color: #b30059;
+    background: #fff5fa !important;
+    color: #4a1030;
 }
 .stApp {
     background:
         radial-gradient(ellipse at 20% 10%, rgba(180,20,80,0.18) 0%, transparent 55%),
         radial-gradient(ellipse at 80% 80%, rgba(140,10,60,0.15) 0%, transparent 55%),
         radial-gradient(ellipse at 50% 50%, rgba(100,5,40,0.1) 0%, transparent 70%),
-        #ffedf5 !important;
+        #fff5fa !important;
     min-height: 100vh;
 }
 #MainMenu, footer, header { visibility: hidden; }
@@ -54,7 +54,7 @@ html, body, [class*="css"], .stApp {
     background: rgba(255,255,255,0.07) !important;
     border: 1px solid rgba(240,98,146,0.35) !important;
     border-radius: 14px !important;
-    color: #ffd6e8 !important;
+    color: #4a1030 !important;
     caret-color: #f06292;
 }
 .stTextInput input::placeholder { color: rgba(255,180,210,0.4) !important; }
@@ -93,13 +93,13 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .pw-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.7rem, 7vw, 2.6rem);
-    font-weight: 700; color: #ffb3d1;
+    font-weight: 700; color: #8a1f4d;
     text-shadow: 0 0 30px rgba(255,100,160,0.5);
     line-height: 1.3; margin-bottom: 0.3rem;
 }
 .pw-hint {
     font-style: italic; font-size: clamp(0.82rem, 3vw, 0.95rem);
-    color: rgba(255,180,210,0.6); margin-bottom: 1.6rem;
+    color: #6b2345; margin-bottom: 1.6rem;
 }
 .pw-error {
     text-align: center; margin-top: 0.6rem;
@@ -122,7 +122,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .q-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.7rem, 7vw, 2.8rem);
-    font-weight: 700; color: #ffb3d1;
+    font-weight: 700; color: #8a1f4d;
     text-align: center;
     text-shadow: 0 0 30px rgba(255,100,160,0.45);
     line-height: 1.3; margin: 1.5rem 0 0.4rem;
@@ -130,7 +130,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .q-sub {
     text-align: center; font-style: italic;
     font-size: clamp(0.85rem, 3vw, 1rem);
-    color: rgba(255,180,210,0.6); margin-bottom: 2rem;
+    color: #6b2345; margin-bottom: 2rem;
 }
 
 /* YES */
@@ -157,7 +157,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .bday-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.2rem, 9vw, 3.8rem);
-    font-weight: 700; color: #ffb3d1;
+    font-weight: 700; color: #8a1f4d;
     text-align: center; line-height: 1.2;
     text-shadow: 0 0 40px rgba(255,100,160,0.5);
     margin: 0.4rem 0 0.2rem;
@@ -206,12 +206,12 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 
 /* love notes */
 .love-note {
-    background: rgba(255,255,255,0.04);
+    background: #ffffff;
     border-left: 2.5px solid rgba(240,98,146,0.6);
     border-radius: 0 14px 14px 0;
     padding: 0.9rem 1.1rem; margin: 0.6rem 0;
     font-size: clamp(0.86rem, 3vw, 0.98rem); line-height: 1.82;
-    color: rgba(255,210,228,0.92);
+    color: #4a1030;
     border-top: 1px solid rgba(255,150,190,0.07);
     border-right: 1px solid rgba(255,150,190,0.07);
     border-bottom: 1px solid rgba(255,150,190,0.07);
@@ -229,14 +229,14 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .gallery-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.35rem, 5.5vw, 2rem);
-    font-weight: 700; text-align: center; color: #ffb3d1;
+    font-weight: 700; text-align: center; color: #8a1f4d;
     margin: 0.4rem 0 0.2rem;
     text-shadow: 0 0 20px rgba(255,100,160,0.3);
 }
 .gallery-sub {
     text-align: center; font-style: italic;
     font-size: clamp(0.78rem, 2.8vw, 0.9rem);
-    color: rgba(255,180,210,0.5); margin-bottom: 0.9rem;
+    color: #6b2345; margin-bottom: 0.9rem;
 }
 
 /* photo — circle, smaller, NO background card */
@@ -257,7 +257,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .photo-caption {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
     font-size: clamp(0.88rem, 3.2vw, 1.05rem);
-    color: rgba(255,210,228,0.88);
+    color: #4a1030;
     margin-top: 0.85rem; line-height: 1.65;
     padding: 0 0.3rem;
 }
@@ -278,7 +278,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 }
 .swipe-row .arr .stButton > button {
     background: rgba(240,98,146,0.18) !important;
-    color: #ffb3d1 !important;
+    color: #8a1f4d !important;
     border: 1.5px solid rgba(240,98,146,0.35) !important;
     border-radius: 50% !important;
     width: 2.4rem !important; height: 2.4rem !important;
@@ -298,34 +298,34 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 
 /* ══ FOOTER ═════════════════════════════════════════════════════════════════ */
 .footer { text-align: center; padding: 1.8rem 1rem 3.5rem; font-family: 'Cormorant Garamond', serif; }
-.footer-main { font-size: clamp(1.3rem, 5.5vw, 1.8rem); color: #ffb3d1; font-weight: 700; text-shadow: 0 0 20px rgba(255,100,160,0.35); }
-.footer-sub { font-size: clamp(0.85rem, 3.2vw, 1rem); color: rgba(255,180,210,0.68); font-style: italic; margin-top: 0.7rem; line-height: 1.85; }
+.footer-main { font-size: clamp(1.3rem, 5.5vw, 1.8rem); color: #8a1f4d; font-weight: 700; text-shadow: 0 0 20px rgba(255,100,160,0.35); }
+.footer-sub { font-size: clamp(0.85rem, 3.2vw, 1rem); color: #6b2345; font-style: italic; margin-top: 0.7rem; line-height: 1.85; }
 .footer-hearts { font-size: clamp(1.5rem, 5vw, 2rem); margin-top: 1rem; letter-spacing: 5px; }
 
 /* ══ REASONS PAGE ═══════════════════════════════════════════════════════════ */
 .reasons-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.7rem, 7vw, 2.6rem);
-    font-weight: 700; text-align: center; color: #ffb3d1;
+    font-weight: 700; text-align: center; color: #8a1f4d;
     text-shadow: 0 0 30px rgba(255,100,160,0.4);
     margin: 0.5rem 0 0.2rem; line-height: 1.25;
 }
 .reason-card {
-    background: rgba(255,255,255,0.04);
+    background: #ffffff;
     border-radius: 14px; padding: 0.85rem 1.05rem; margin: 0.45rem 0;
-    font-size: clamp(0.84rem, 3vw, 0.97rem); color: rgba(255,210,228,0.93);
+    font-size: clamp(0.84rem, 3vw, 0.97rem); color: #4a1030;
     border: 1px solid rgba(255,140,185,0.12);
     line-height: 1.68; position: relative; z-index: 1;
     transition: background 0.2s, border-color 0.2s;
 }
-.reason-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(240,98,146,0.25); }
+.reason-card:hover { background: #fff7fb; border-color: rgba(240,98,146,0.25); }
 .reason-num {
     font-weight: 700; color: #f06292;
     font-size: 0.72rem; display: block; margin-bottom: 0.12rem; letter-spacing: 1px;
 }
 .endless {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: clamp(1rem, 3.8vw, 1.2rem); color: #ffb3d1;
+    font-size: clamp(1rem, 3.8vw, 1.2rem); color: #8a1f4d;
     text-align: center; margin: 1.4rem 0 2rem;
     padding: 1rem 1.2rem;
     background: rgba(194,24,91,0.1);
@@ -335,7 +335,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 .sm-wrap { display: flex; justify-content: center; margin: 0.7rem 0; }
 .sm-wrap .stButton > button {
     background: rgba(194,24,91,0.18) !important;
-    color: #ffb3d1 !important;
+    color: #8a1f4d !important;
     border: 1.5px solid rgba(240,98,146,0.35) !important;
     border-radius: 50px !important;
     padding: 0.48rem 2rem !important;
@@ -345,7 +345,7 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
 
 /* back btn */
 .back-btn .stButton > button {
-    background: rgba(255,255,255,0.06) !important;
+    background: #ffffff !important;
     color: rgba(255,180,210,0.8) !important;
     border: 1px solid rgba(255,140,185,0.22) !important;
     border-radius: 50px !important;
@@ -353,18 +353,6 @@ div[data-testid="stColumn"], section[data-testid="stSidebar"] { background: tran
     font-size: 0.8rem !important; font-weight: 600 !important;
 }
 .back-btn .stButton > button:hover { background: rgba(255,255,255,0.12) !important; }
-
-
-.pin-display{
-background:white;border:2px solid #ff69b4;border-radius:18px;
-padding:18px;margin-bottom:20px;text-align:center;
-color:#ff1493;font-size:2rem;font-weight:bold;letter-spacing:10px;
-}
-.pin-btn .stButton>button{
-background:white !important;color:#ff1493 !important;
-border:2px solid #ff69b4 !important;border-radius:18px !important;
-font-size:1.3rem !important;font-weight:700 !important;height:65px !important;
-}
 
 /* mobile */
 @media (max-width: 430px) {
@@ -455,14 +443,13 @@ if st.session_state.page == "password":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown(f'<div class="pin-display">{"•"*len(st.session_state.entered_pw)}</div>', unsafe_allow_html=True)
+    st.markdown(f"<h2 style='text-align:center;color:#8a1f4d;letter-spacing:8px'>{'*'*len(st.session_state.entered_pw)}</h2>", unsafe_allow_html=True)
 
     keypad=[['1','2','3'],['4','5','6'],['7','8','9'],['⌫','0','✓']]
     for row in keypad:
         cols=st.columns(3)
         for i,key in enumerate(row):
             with cols[i]:
-                st.markdown('<div class="pin-btn">',unsafe_allow_html=True)
                 if st.button(key, key=f"kp_{key}", use_container_width=True):
                     if key=='⌫':
                         st.session_state.entered_pw=st.session_state.entered_pw[:-1]
@@ -477,7 +464,6 @@ if st.session_state.page == "password":
                         if len(st.session_state.entered_pw)<8:
                             st.session_state.entered_pw+=key
                     st.rerun()
-                st.markdown('</div>',unsafe_allow_html=True)
 
     if st.session_state.pw_error:
         st.markdown('<p class="pw-error">Hmm, that\'s not right… think about when everything started 💕</p>',
@@ -512,8 +498,8 @@ elif st.session_state.page == "question":
             "Just click YES, babe, come on 💖",
             "I'm not letting you go that easily 🌹",
             "Come On Daddyyyy",
-            "Dont you Love Me????",
-            "Ughhhh Fuck Youuu",
+            "Dont you Love Me????"
+            "Ughhhh Fuck Youuu"
         ]
         aligns = ["flex-end","flex-start","center","flex-end","flex-start"]
         m = min(st.session_state.no_pos - 1, len(msgs)-1)
@@ -522,7 +508,7 @@ elif st.session_state.page == "question":
             f'<div style="display:flex;justify-content:{a};margin-top:0.4rem;">'
             f'<span style="font-size:1.5rem;opacity:0.4;">💔</span></div>'
             f'<div style="text-align:center;margin-top:0.6rem;font-style:italic;'
-            f'color:rgba(255,180,210,0.6);font-size:0.9rem;">{msgs[m]}</div>',
+            f'color:#6b2345;font-size:0.9rem;">{msgs[m]}</div>',
             unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -538,8 +524,12 @@ elif st.session_state.page == "birthday":
         if st.button("💌 Reasons I Love You", key="go_reasons"):
             st.session_state.page = "reasons"
             st.session_state.reasons_shown = 10
-            st.rerun()        
-            st.markdown('</div>', unsafe_allow_html=True)
+            st.rerun()
+        if st.button("🔥 Secret Letter", key="go_secret"):
+            st.session_state.page = "secret"
+            st.session_state.reasons_shown = 10
+            st.rerun()
+        st.markdown('</div>', unsafe_allow_html=True)
 
     # header
     st.markdown("""
@@ -591,7 +581,7 @@ elif st.session_state.page == "birthday":
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("""
     <div class="footer">
-        <div class="footer-main">Happy Birthday, my love. 💖</div>
+        <div class="footer-main">Happy Birthday, Daddy. 💖</div>
         <div class="footer-sub">
             You are my favourite part of every single day.<br>
             I love you more than words will ever, ever manage to say. 🌹
@@ -616,7 +606,7 @@ elif st.session_state.page == "reasons":
                 unsafe_allow_html=True)
     st.markdown("<h1 class='reasons-title'>Reasons Why<br>I Love You 💌</h1>",
                 unsafe_allow_html=True)
-    st.markdown('<div style="text-align:center;font-style:italic;color:rgba(255,180,210,0.5);font-size:0.88rem;margin-bottom:1rem;">let me count the ways… 🌸</div>',
+    st.markdown('<div style="text-align:center;font-style:italic;color:#6b2345;font-size:0.88rem;margin-bottom:1rem;">let me count the ways… 🌸</div>',
                 unsafe_allow_html=True)
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
@@ -638,26 +628,25 @@ elif st.session_state.page == "reasons":
             'to hold everything I feel for you.</span></div>',
             unsafe_allow_html=True)
 
-    
-    st.markdown("""
-    <div style="background:white;border:2px solid #ffb6c1;padding:20px;border-radius:20px;margin:25px 0;color:#b30059;">
-    <h2 style="text-align:center;color:#ff1493;">🔥 A Little Secret Letter 🔥</h2>
-    My love,<br><br>
-    Every day with you makes me fall harder. I imagine the moment the distance disappears,
-    when I finally get to pull you close and never let go.<br><br>
-    I think about your smile, your voice, your laugh, and all the little things that make me completely obsessed with you.
-    I can't wait to kiss you all over your body,make you hard, suck your dick, get fucked by you,make babies with you, marry you, hold your hand till the day i die, and remind you every day how much I love you.<br><br>
-    Until then, just know that you're always on my mind. ❤️<br><br>
-    Forever yours,<br>
-    Shakshi
-    </div>
-    """, unsafe_allow_html=True)
-
-st.markdown('<hr class="divider">', unsafe_allow_html=True)
-_, bc, _ = st.columns([1, 2, 1])
-with bc:
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    _, bc, _ = st.columns([1, 2, 1])
+    with bc:
         st.markdown('<div class="back-btn">', unsafe_allow_html=True)
         if st.button("← Back to Birthday 💖", key="back_bot", use_container_width=True):
             st.session_state.page = "birthday"
             st.rerun()
         st.markdown('</div>', unsafe_allow_html=True)
+
+elif st.session_state.page == "secret":
+    floating_hearts(18)
+    if st.button("← Back", key="secret_back"):
+        st.session_state.page="birthday"
+        st.rerun()
+    st.markdown("""<h1 class='reasons-title'>🔥 TO MY DEAREST BOYFRIEND 🔥</h1>""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="love-note">
+    My love,<br><br>
+    Every day I miss you, think about you, and imagine the moment I finally get to pull you close and never let go. You make my heart race in ways I never expected, and the distance only makes me want you more.<br><br>
+    I just cannot wait for the moment i will get to kiss you all over and touch you in ways you start to make those hot noises, make you hard, suck your dick, get fucked by you,make babies with you, marry you, hold your hand till i die, but until then, keep this as a reminder that you're loved, desired, and constantly on my mind. ❤️
+    </div>
+    """, unsafe_allow_html=True)
